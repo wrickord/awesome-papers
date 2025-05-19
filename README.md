@@ -18,7 +18,7 @@ An ever-expanding collection of papers I find interesting, useful, or just plain
 ## Biology
 
 ## Mathematics
-- [`lessons`](./numerical-methods/)  
+- [`math lessons`](./math-lessons/)  
   > Learning resources, lectures, textbooks, etc.
   
 - [`numerical methods`](./numerical-methods/)  
