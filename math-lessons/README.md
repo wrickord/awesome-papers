@@ -1,7 +1,7 @@
 # Mathematics
 
 ## Webpages
-[Paul's Online Math Notes](https://tutorial.math.lamar.edu)
+[Paul's Online Math Notes](https://tutorial.math.lamar.edu) \\
 [Just the Maths by AJ Hobson](https://archive.uea.ac.uk/jtm/contents.htm)
 
 ## Lectures & Media
