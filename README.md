@@ -9,37 +9,37 @@ An ever-expanding collection of papers I find interesting, useful, or just plain
 # 🗂️ Topics
 
 ## AI
-- [`foundations`](./foundations/)
+- [`foundations`](./topics/foundations/)
   > learning, optimization, generalization
 
-- [`representation learning`](./representation-learning/)
+- [`representation learning`](./topics/representation-learning/)
   > embeddings, attention, transfer learning, interpretability
 
-- [`reasoning`](./reasoning/)
+- [`reasoning`](./topics/reasoning/)
   > chain-of-thought, contextualization
 
-- [`sequential decision-making`](./sequential-decision-making/)
+- [`sequential decision-making`](./topics/sequential-decision-making/)
   > reinforcement learning, Markov chains, agents
 
-- [`causality`](./causality/)
+- [`causality`](./topics/causality/)
   > causal graphs, counterfactual reasoning, robustness
 
 ## Biology
-- [`omics`](./omics/)
+- [`omics`](./topics/omics/)
   > genomics, transcriptomics, spatial
 
-- [`proteins`](./proteins/)
+- [`proteins`](./topics/proteins/)
   > structure, dynamics, design, function
 
-- [`cellular reprogramming`](./cellular-reprogramming/)
+- [`cellular reprogramming`](./topics/cellular-reprogramming/)
   > gene regulatory networks, interactions, trajectory inference, perturbation prediction
   
-- [`organoids`](./organoids/)
+- [`organoids`](./topics/organoids/)
   > protocol optimization, active learning
 
-- [`clinical medicine`](./clinical-medicine/)
+- [`clinical medicine`](./topics/clinical-medicine/)
   > knowledge graphs, EHR, 
 
 ## Mathematics & Computer Science
-- [`mathematics`](./mathematics/)  
+- [`mathematics`](./topics/mathematics/)  
   > learning resources, lectures, textbooks
