@@ -2,7 +2,7 @@
 
 # 📚 Research Library
 
-An ever-expanding collection of papers I find interesting, useful, or just plain elegant. Covers topics at the intersection of AI, computation, and medicine.
+An ever-expanding collection of papers I find interesting, useful, or just plain elegant. Covers topics at the intersection of AI, biology, and computer science.
 
 ---
 
