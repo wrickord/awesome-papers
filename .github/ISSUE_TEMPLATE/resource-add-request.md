@@ -7,7 +7,7 @@ assignees: wrickord
 
 ---
 
-Please label the resource below.
+Please describe the resource below.
 
 # Topic:
 
