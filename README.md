@@ -42,4 +42,4 @@ An ever-expanding collection of papers I find interesting, useful, or just plain
 
 ## Mathematics & Computer Science
 - [`mathematics`](./mathematics/)  
-  > Learning resources, lectures, textbooks.
+  > learning resources, lectures, textbooks
