@@ -1,5 +1,5 @@
 import os
-import requests
+import requests  ## type: ignore
 from datetime import datetime
 
 # Config from GitHub Secrets
