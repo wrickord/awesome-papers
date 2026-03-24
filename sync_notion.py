@@ -57,14 +57,23 @@ def extract_text(property_data, default=""):
         return default
     
     prop_type = property_data.get("type")
+    
     if prop_type == "title":
-        return property_data["title"]["plain_text"] if property_data["title"] else default
+        # Title is a list of text objects. We join them in case of multiple fragments.
+        text_list = property_data.get("title", [])
+        return "".join([t.get("plain_text", "") for t in text_list]) if text_list else default
+        
     elif prop_type == "rich_text":
-        return property_data["rich_text"]["plain_text"] if property_data["rich_text"] else default
+        # Rich text is also a list.
+        text_list = property_data.get("rich_text", [])
+        return "".join([t.get("plain_text", "") for t in text_list]) if text_list else default
+        
     elif prop_type == "url":
         return property_data.get("url") or default
+        
     elif prop_type == "select":
-        return property_data["select"]["name"] if property_data.get("select") else default
+        select_data = property_data.get("select")
+        return select_data.get("name") if select_data else default
     
     return default
 
