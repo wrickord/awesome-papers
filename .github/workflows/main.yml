@@ -1,11 +1,11 @@
 name: Notion to GitHub Sync
 on:
   schedule:
-    - cron: '0 * * * *' # Runs every hour
-  workflow_dispatch: # Allows you to run it manually for testing
+    - cron: '0 * * * *' # Runs at minute 0 of every hour
+  workflow_dispatch: # Allows you to trigger the run manually from the GitHub UI
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -23,6 +23,7 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          TZ: 'America/New_York' # Forces the runner to use US Eastern Time
         run: python sync_notion.py
 
       - name: Commit and push changes
@@ -30,5 +31,5 @@ jobs:
           git config --global user.name "notion-bot"
           git config --global user.email "bot@github.com"
           git add .
-          git commit -m "Auto-sync from Notion" || exit 0
+          git commit -m "Auto-sync from Notion [skip ci]" || exit 0
           git push
