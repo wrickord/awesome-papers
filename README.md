@@ -1,6 +1,6 @@
 # 📚 Research Library
 
-An ever-expanding collection of papers and synthesized notes at the intersection of AI, Biology, and Mathematics. This repository uses an automated sync system to pull high-signal resources directly from Notion, so create an issue for any problems or to request a resource to be added.
+An ever-expanding collection of papers and synthesized notes at the intersection of AI, Biology, and Mathematics. This repository uses an automated sync system to pull high-signal resources directly from my personal Notion database, so create an issue for any problems or to request a resource to be added.
 
 ---
 
