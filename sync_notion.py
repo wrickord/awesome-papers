@@ -1,5 +1,5 @@
 import os
-import requests  ## type: ignore
+import requests  # type: ignore
 from datetime import datetime
 
 # Config from GitHub Secrets
@@ -12,31 +12,9 @@ headers = {
     "Notion-Version": "2022-06-28"
 }
 
-# 1. Map Notion Dropdown values to your folder paths
-# The key is the exact text in your Notion "Topic for GitHub" column.
-# The value is the folder path inside the "topics/" directory.
-TOPIC_MAP = {
-    "Information Theory": "foundations-intelligence/information-theory",
-    "Stochastic Processes": "foundations-intelligence/stochastic-processes",
-    "Optimization Theory": "foundations-intelligence/optimization-theory",
-    "Causality": "foundations-intelligence/causality",
-    "Embeddings": "representational-modeling/embeddings",
-    "Geometric DL": "representational-modeling/geometric-dl",
-    "Multimodal": "representational-modeling/multimodal",
-    "Interpretability": "representational-modeling/interpretability",
-    "Sequential Decision Making": "dynamics-evolution/decision-making",
-    "Generative Design": "dynamics-evolution/generative-design",
-    "Trajectory Inference": "dynamics-evolution/trajectory-inference",
-    "Perturbation Prediction": "dynamics-evolution/perturbation",
-    "Knowledge Synthesis": "applied-medicine/knowledge-synthesis",
-    "Structural Omics": "applied-medicine/omics",
-    "Automated Discovery": "applied-medicine/automated-discovery",
-    "Robustness & Safety": "applied-medicine/safety"
-}
-
 def get_favorited_pages():
     url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
-    # Query: Grab rows where 'Favorite' is True AND 'On GitHub' is False
+    # Grab rows where 'Favorite' is True AND 'On GitHub' is False
     query = {
         "filter": {
             "and": [
@@ -55,25 +33,23 @@ def get_favorited_pages():
     return res.json().get("results", [])
 
 def update_notion_page(page_id):
-    # Check the "On GitHub" box instead of touching the "Favorite" box
+    # Check the "On GitHub" box instead of touching "Favorite"
     url = f"https://api.notion.com/v1/pages/{page_id}"
     data = {"properties": {"On GitHub": {"checkbox": True}}}
     requests.patch(url, headers=headers, json=data)
 
 def extract_text(property_data, default=""):
-    """Helper function to safely extract text from Notion's nested JSON."""
+    """Safely extract text from Notion's nested JSON."""
     if not property_data:
         return default
     
     prop_type = property_data.get("type")
     
     if prop_type == "title":
-        # Title is a list of text objects. We join them in case of multiple fragments.
         text_list = property_data.get("title", [])
         return "".join([t.get("plain_text", "") for t in text_list]) if text_list else default
         
     elif prop_type == "rich_text":
-        # Rich text is also a list.
         text_list = property_data.get("rich_text", [])
         return "".join([t.get("plain_text", "") for t in text_list]) if text_list else default
         
@@ -93,25 +69,24 @@ def sync():
     for page in pages:
         props = page["properties"]
         
-        # 2. Extract properties based on your exact Notion column names
-        # Note: If your Notion columns are named differently, change the string keys below!
-        topic_key = extract_text(props.get("Topic for GitHub"), default="Uncategorized")
+        # Extract properties
+        folder_path = extract_text(props.get("Topic for GitHub"), default="")
         title = extract_text(props.get("Paper Title"), default="Untitled Paper")
         doi = extract_text(props.get("DOI"), default="No DOI provided")
         citation = extract_text(props.get("Full Citation"), default="No citation provided")
         summary = extract_text(props.get("Summary"), default="No summary provided.")
         
-        # 3. Determine the target directory
-        folder_path = TOPIC_MAP.get(topic_key)
+        # Skip if there's no folder path selected in Notion
         if not folder_path:
-            print(f"⚠️ Topic '{topic_key}' not found in TOPIC_MAP. Skipping {title}.")
+            print(f"⚠️ No Topic assigned in Notion. Skipping {title}.")
             continue
             
+        # Target directory uses the Notion dropdown string directly
         target_dir = f"topics/{folder_path}"
         os.makedirs(target_dir, exist_ok=True)
         readme_path = f"{target_dir}/README.md"
         
-        # 4. Format the Markdown entry
+        # Format the Markdown entry
         new_entry = f"""## {today_date}
 ### {title}
 #### DOI: <{doi}>
@@ -122,7 +97,7 @@ def sync():
 ---
 
 """
-        # 5. Prepend to the existing README (or create if it doesn't exist)
+        # Prepend to the existing README
         existing_content = ""
         if os.path.exists(readme_path):
             with open(readme_path, "r", encoding="utf-8") as f:
@@ -133,7 +108,7 @@ def sync():
             
         print(f"✅ Synced: {title} -> {target_dir}")
         
-        # 6. Uncheck the Notion Favorite box
+        # Check the "On GitHub" box so it doesn't duplicate next time
         update_notion_page(page["id"])
 
 if __name__ == "__main__":
