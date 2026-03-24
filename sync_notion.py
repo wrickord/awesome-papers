@@ -36,19 +36,28 @@ TOPIC_MAP = {
 
 def get_favorited_pages():
     url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
+    # Query: Grab rows where 'Favorite' is True AND 'On GitHub' is False
     query = {
         "filter": {
-            "property": "Favorite",
-            "checkbox": {"equals": True}
+            "and": [
+                {
+                    "property": "Favorite",
+                    "checkbox": {"equals": True}
+                },
+                {
+                    "property": "On GitHub",
+                    "checkbox": {"equals": False}
+                }
+            ]
         }
     }
     res = requests.post(url, headers=headers, json=query)
     return res.json().get("results", [])
 
 def update_notion_page(page_id):
-    # Uncheck the box so we don't sync it again
+    # Check the "On GitHub" box instead of touching the "Favorite" box
     url = f"https://api.notion.com/v1/pages/{page_id}"
-    data = {"properties": {"Favorite": {"checkbox": False}}}
+    data = {"properties": {"On GitHub": {"checkbox": True}}}
     requests.patch(url, headers=headers, json=data)
 
 def extract_text(property_data, default=""):
