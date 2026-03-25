@@ -53,3 +53,8 @@ An ever-expanding collection of papers and synthesized notes at the intersection
   > Using AI agents to design and run experiments (Active Learning).
 - [`robustness-safety`](./topics/applied-medicine/safety/)
   > Predictable cellular reprogramming and counterfactual-proof medical AI.
+
+---
+
+# Bonus
+- [my favorite genes](.topics/genes/)
