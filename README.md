@@ -57,4 +57,5 @@ An ever-expanding collection of papers and synthesized notes at the intersection
 ---
 
 # Bonus
-- [my favorite genes](.topics/genes/)
+- [Publication & news feed](./bonus/feed/)
+- [Favorite genes](./bonus/genes/) (and why!)
