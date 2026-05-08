@@ -60,6 +60,10 @@ An ever-expanding collection of papers and synthesized notes at the intersection
 - [Publication & news feed](./bonus/feed/)
 - [Favorite genes](./bonus/genes/) (and why!)
 
+---
+
+# Paper Feed (All Topics)
+
 ## 2026-05-08
 ### A logical calculus of the ideas immanent in nervous activity
 **Topic:** foundations-intelligence/information-theory  
