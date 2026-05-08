@@ -1,6 +1,6 @@
 # 📚 Research Library
 
-An ever-expanding collection of papers and synthesized notes at the intersection of AI, Biology, and Mathematics. This repository uses an automated sync system to pull high-signal resources directly from my personal Notion database, so create an issue for any problems or to request a resource to be added.
+An ever-expanding collection of papers and synthesized notes at the intersection of AI, biology, and mathematics. Browse by topic to find domain-specific works, or scroll through the continuous paper feed (at the bottom of this page) for the full collection. This repository is powered by an automated sync system that pulls high-signal resources from my personal Notion database. Please open an issue to report problems or request that a resource be added.
 
 ---
 
@@ -56,11 +56,13 @@ An ever-expanding collection of papers and synthesized notes at the intersection
 
 ---
 
+<!--
 # Bonus
 - [Publication & news feed](./bonus/feed/)
 - [Favorite genes](./bonus/genes/) (and why!)
 
 ---
+-->
 
 # Paper Feed (All Topics)
 
