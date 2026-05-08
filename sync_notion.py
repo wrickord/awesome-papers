@@ -62,6 +62,29 @@ def extract_text(property_data, default=""):
     
     return default
 
+def update_main_feed(new_entry, readme_path="README.md"):
+    heading = "# Paper Feed"
+
+    if not os.path.exists(readme_path):
+        with open(readme_path, "w", encoding="utf-8") as f:
+            f.write(f"{heading}\n\n{new_entry}")
+        return
+
+    with open(readme_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    if heading not in content:
+        content = f"{heading}\n\n{new_entry}\n{content}"
+    else:
+        content = content.replace(
+            heading,
+            f"{heading}\n\n{new_entry.rstrip()}\n",
+            1
+        )
+
+    with open(readme_path, "w", encoding="utf-8") as f:
+        f.write(content)
+        
 def sync():
     pages = get_favorited_pages()
     today_date = datetime.now().strftime("%Y-%m-%d")
@@ -120,11 +143,9 @@ def sync():
 ---
 
 """
-            
-        main_feed_path = "README.md"
-        with open(main_feed_path, "a", encoding="utf-8") as f:
-            f.write(new_entry)
+        update_main_feed(new_entry)    
 
+        # Display completion
         print(f"✅ Synced: {title} -> {target_dir}")
         
         # Check the "On GitHub" box so it doesn't duplicate next time
