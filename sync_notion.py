@@ -113,7 +113,6 @@ def sync():
         new_entry = f"""
 ## {today_date}
 ### {title}
-#### DOI: <{doi}>
 **Citation:** {citation}
 
 **Summary:** {summary}
@@ -135,7 +134,6 @@ def sync():
 ## {today_date}
 ### {title}
 **Topic:** {folder_path}  
-#### DOI: <{doi}>
 **Citation:** {citation}
 
 **Summary:** {summary}
