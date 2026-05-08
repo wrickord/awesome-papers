@@ -62,7 +62,19 @@ An ever-expanding collection of papers and synthesized notes at the intersection
 
 ---
 
-# Paper Feed (All Topics)
+# Paper Feed
+
+
+## 2026-05-08
+### Cybernetics or Control and Communication in the Animal and the Machine
+**Topic:** foundations-intelligence/information-theory  
+#### DOI: <https://doi.org/10.7551/mitpress/11810.001.0001>
+**Citation:** Wiener, Norbert. Cybernetics or Control and Communication in the Animal and the Machine. The MIT Press, 2019. https://doi.org/10.7551/mitpress/11810.001.0001.
+
+**Summary:** At the time … So, the author’s developed …, which solves … They discovered that …
+
+---
+ (All Topics)
 
 ## 2026-05-08
 ### A logical calculus of the ideas immanent in nervous activity
