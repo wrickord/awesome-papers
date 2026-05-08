@@ -87,7 +87,8 @@ def sync():
         readme_path = f"{target_dir}/README.md"
         
         # Format the Markdown entry
-        new_entry = f"""## {today_date}
+        new_entry = f"""
+## {today_date}
 ### {title}
 #### DOI: <{doi}>
 **Citation:** {citation}
@@ -105,7 +106,25 @@ def sync():
                 
         with open(readme_path, "w", encoding="utf-8") as f:
             f.write(new_entry + existing_content)
+
+        # Also append to the bottom of the main README feed
+        new_entry = f"""
+## {today_date}
+### {title}
+**Topic:** {folder_path}  
+#### DOI: <{doi}>
+**Citation:** {citation}
+
+**Summary:** {summary}
+
+---
+
+"""
             
+        main_feed_path = "README.md"
+        with open(main_feed_path, "a", encoding="utf-8") as f:
+            f.write(new_entry)
+
         print(f"✅ Synced: {title} -> {target_dir}")
         
         # Check the "On GitHub" box so it doesn't duplicate next time
