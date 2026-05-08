@@ -10,6 +10,16 @@
 
 
 ## 2026-05-08
+### Cybernetics or Control and Communication in the Animal and the Machine
+#### DOI: <https://doi.org/10.7551/mitpress/11810.001.0001>
+**Citation:** Wiener, Norbert. Cybernetics or Control and Communication in the Animal and the Machine. The MIT Press, 2019. https://doi.org/10.7551/mitpress/11810.001.0001.
+
+**Summary:** At the time … So, the author’s developed …, which solves … They discovered that …
+
+---
+
+
+## 2026-05-08
 ### A logical calculus of the ideas immanent in nervous activity
 #### DOI: <https://doi.org/10.1007/BF02478259>
 **Citation:** McCulloch, Warren S., and Walter Pitts. “A Logical Calculus of the Ideas Immanent in Nervous Activity.” The Bulletin of Mathematical Biophysics 5, no. 4 (1943): 115–33. https://doi.org/10.1007/BF02478259.
