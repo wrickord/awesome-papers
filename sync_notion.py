@@ -63,7 +63,7 @@ def extract_text(property_data, default=""):
     return default
 
 def update_main_feed(new_entry, readme_path="README.md"):
-    heading = "# Paper Feed"
+    heading = "# Paper Feed (All Topics)"
 
     if not os.path.exists(readme_path):
         with open(readme_path, "w", encoding="utf-8") as f:
